@@ -1,0 +1,64 @@
+ <table class="table table-striped table-responsive" [mfData]="data " #mf="mfDataTable" 
+        [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+        <thead>
+            <tr>
+                <th colspan="5">
+                    Search
+                    <input class="form-control"/>
+                </th>
+            </tr>
+            <tr class="col">
+                
+                <th style="width: 10%">
+                    <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                </th>
+                <th style="width: 10%">
+                    <mfDefaultSorter by="class">Class</mfDefaultSorter>
+                </th>
+                <th style="width: 10%">
+                    <mfDefaultSorter by="room">Room</mfDefaultSorter>
+                </th>
+                <th style="width: 10%">
+                    <mfDefaultSorter by="gender">Gender</mfDefaultSorter>
+                </th>
+                <th style="width: 10%">
+                    <mfDefaultSorter by="dob">DOB</mfDefaultSorter>
+                </th>
+                <th style="width: 10%">
+                    <mfDefaultSorter by="startdate">StartDate</mfDefaultSorter>
+                </th>
+                <th style="width: 10%">
+                    <mfDefaultSorter by="enddate">EndDate</mfDefaultSorter>
+                </th>
+                <!--<th style="width: 10%">
+                    <mfDefaultSorter by="status">Status</mfDefaultSorter>
+                </th>-->
+                <th style="width: 10%">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of data">
+                <td>{{post.childFirstName | uppercase}} {{post.childLastName}}</td>
+                <td>{{post.enrolledclass}}</td>
+                <td>{{post.enrolledRoom}}</td>
+                <td>{{post.childGender}}</td>
+                <td>{{post.dob}}</td>
+                <td>{{post.enrolledStartDate}}</td>
+                <td>{{post.enrolledEndDate}}</td>
+                <!--<td>{{post.status}}</td>-->
+                <td>
+                    <button class="btn btn-danger" title="remove" (click)="removeItem(post)">
+                        <span class="glyphicon glyphicon-remove">Delete</span>
+                </button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+

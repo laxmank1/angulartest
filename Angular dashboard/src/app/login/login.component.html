@@ -1,0 +1,29 @@
+<div class="login-page" [@routerTransition]>
+    <div class="row">
+        <div class="col-md-4 push-md-4">
+            <img src="assets/images/logo.png" width="150px" class="user-avatar" />
+            <h1>Login Here</h1>
+            <!--<form role="form">-->
+
+            <form [formGroup]="fLogin" (ngSubmit)="onLogin(fLogin.value)" class="form-horizontal" method="POST">
+
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="Username" formControlName="name">
+                        <!--<div *If="fLogin.get('username').hasError('required') fLogin.get('username').touched"></div>-->
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password" formControlName="password">
+                    </div>
+                </div>
+                <!--<a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()"> Log in </a> &nbsp;-->
+                <!--<a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>-->
+                <div class="btn">
+                    <input class="btn rounded-btn" type="submit" value="Login" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

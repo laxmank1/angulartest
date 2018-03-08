@@ -1,0 +1,349 @@
+<form #fAddStudent="ngForm" (ngSubmit)="onAddStudent(fAddStudent)" class="form-horizontal" role="form" method="POST">
+
+  <div class="row">
+    <div class="col-sm-6">
+
+      <!--child info-->
+      <div class="card" style="width: 22rem;">
+
+        <div class="card-block">
+          <h4 class="card-title alert alert-success text-center">Child Information</h4>
+          <hr>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" name="ChildFirstName" [(ngModel)]="ChildFirstName">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" name="ChildLastName" [(ngModel)]="ChildLastName">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+           
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input type="text" class="form-control" id="childGender" placeholder="Gender" name="ChildGender" [(ngModel)]="ChildGender">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <!--
+              <div class="form-group">
+                <label for="inputEmail">BirthDate</label>
+                <input type="date" class="form-control" id="inputEmail" placeholder="Birth Date" name="DOB" [(ngModel)]="DOB">
+              </div>-->
+
+
+
+              <!--date picker-->
+
+              <div class="form-group">
+                <div class="input-group">
+                  <input class="form-control" placeholder="Birth Date" name="DOB" [(ngModel)]="BirthDate" ngbDatepicker #birthDate="ngbDatepicker">
+                  <div class="input-group-addon" (click)="birthDate.toggle()">
+                    <span class="fa fa-calendar"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!--child info-->
+    </div>
+
+    <div class="col-sm-6">
+
+      <div class="card" style="width: 20rem;">
+
+        <div class="card-block">
+          <h4 class="card-title alert alert-success text-center">Update Profile</h4>
+          <hr>
+          <input type="file" class="text-center">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <br>
+
+  <!--parent info-->
+
+  <div class="row">
+
+    <div class="col-sm-6">
+
+
+      <div class="card" style="width: 22rem;">
+
+        <div class="card-block">
+          <h4 class="card-title alert alert-success text-center">Parent Information</h4>
+          <hr>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputFirstName" placeholder="Father Name" name="ParentFatherName" [(ngModel)]="ParentFatherName">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputLastName" placeholder="Mother Name" name="ParentMotherName" [(ngModel)]="ParentMotherName">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputEmail" placeholder="Mobile" name="ParentMobile" [(ngModel)]="ParentMobile">
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="ParentEmailId" [(ngModel)]="ParentEmailId">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="col-sm-6">
+
+      <div class="card" style="width: 20rem;">
+        <div class="card-block">
+          <h4 class="card-title alert alert-success text-center">Contact Details</h4>
+          <hr>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputAddress" placeholder="Address" name="Address" [(ngModel)]="Address">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputLastName" placeholder="Country" name="Country" [(ngModel)]="Country">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputEmail" placeholder="State" name="State" [(ngModel)]="State">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputWebsite" placeholder="City" name="City" [(ngModel)]="City">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="number" class="form-control" id="inputWebsite" placeholder="Postal Code" name="PostalCode" [(ngModel)]="PostalCode">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!--parent info-->
+
+  <br>
+
+
+
+
+  <div class="row">
+    <div class="col-sm-6">
+
+      <div class="card" style="width: 22rem;">
+
+        <div class="card-block">
+          <h4 class="card-title alert alert-success text-center">Guardian Information</h4>
+          <hr>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" name="GuardianFirstName" [(ngModel)]="GuardianFirstName">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" name="GuardianLastName" [(ngModel)]="GuardianLastName">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputLastName" placeholder="Relation" name="GuardianRelation" [(ngModel)]="GuardianRelation">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputLastName" placeholder="Mobile" name="GuardianMobile" [(ngModel)]="GuardianMobile">
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputLastName" placeholder="Email" name="GuardianEmailId" [(ngModel)]="GuardianEmail">
+              </div>
+            </div>
+
+          </div>
+          <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="col-sm-6">
+
+
+      <!--enrollment details-->
+
+
+      <div class="card" style="width: 22rem;">
+
+        <div class="card-block">
+          <h4 class="card-title alert alert-success text-center">Enrollment Details</h4>
+          <hr>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="class" placeholder="Class" name="Enrolledclass" [(ngModel)]="Enrolledclass">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="room" placeholder="Room" name="EnrolledRoom" [(ngModel)]="EnrolledRoom">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+
+              <!--<div class="form-group">
+                <label for="inputEmail">Start Date</label>
+                <input type="date" class="form-control" id="inputEmail" placeholder="Start Date" name="EnrolledStartDate" [(ngModel)]="StartDate">
+              </div>-->
+
+              <div class="form-group">
+                <div class="input-group">
+                  <input class="form-control" placeholder="Start Date" name="EnrolledStartDate" [(ngModel)]="StartDate" ngbDatepicker #startDate="ngbDatepicker">
+                  <div class="input-group-addon" (click)="startDate.toggle()">
+                    <span class="fa fa-calendar"></span>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+
+              <!--<div class="form-group">
+                <label for="inputEmail">End Date</label>
+                <input type="date" class="form-control" id="inputEmail" placeholder="End Date" name="EnrolledEndDate" [(ngModel)]="EndDate">
+              </div>-->
+
+
+              <div class="form-group">
+                <div class="input-group">
+                  <input class="form-control" placeholder="End Date" name="EnrolledEndDate" [(ngModel)]="EndDate" ngbDatepicker #endDate="ngbDatepicker">
+                  <div class="input-group-addon" (click)="endDate.toggle()">
+                    <span class="fa fa-calendar"></span>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input type="text" class="form-control" id="additionalInfo" placeholder="Additional Information" name="AdditionalDetails"
+                  [(ngModel)]="AdditionalDetails">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <!--enrollment details-->
+
+
+    </div>
+
+  </div>
+
+
+
+  <hr>
+
+
+
+  <div class="text-center">
+    <div class="btn">
+      <input type="submit" value="Submit" class="btn btn-success" />
+    </div>
+    <div class="btn">
+      <input type="reset" value="Reset" class="btn btn-danger" />
+    </div>
+  </div>
+
+</form>
+<hr>
+
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
