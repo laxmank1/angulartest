@@ -1,0 +1,197 @@
+1. Whats the difference between let and var?
+Ans- let allows you to declare variables that are limited in scope to the block, statement, or expression on which it is used. This is unlike the var keyword, which defines a variable globally, or locally to an entire function regardless of block scope. An explanation of why the name "let" was chosen can be found here.
+
+2. What are the new advancements introduced in Angular 4 from Angular 2?
+Ans- 1. Smaller & Faster Apps - Angular 4 applications is smaller & faster in comparison with Angular 2.
+2. View Engine Size Reduce - Some changes under to hood to what AOT generated code compilation that means in Angular 4, improved the compilation time. These changes reduce around 60% size in most cases.
+3. Animation Package- Animations now have their own package i.e. @angular/platform-browser/animations
+4. Improvement - Some Improvement on *ngIf and *ngFor.
+
+3. What is the way to define the service into Module?
+Ans- import the service and pass this into service and then use and another way to inject the service.
+ 
+4. How to bootstrap Angular 4 application
+Ans- 1- Browser bootstrapping
+         2-Bootstrapping the module
+5. How can we send data from parent to child Component?
+Ans- @input
+
+6. How can we send data from child to parent component?
+Ans- @output
+
+7. What are event emitters and how do they work?
+Ans- EventEmitter is a class in angular framework. It has emit() method that emits custom events. We can use EventEmitter in custom event binding.
+@Output() updateEmployee = new EventEmitter<Employee>();  
+
+8. Whats the basic difference between Angular 1.x and Angular 2 onwards.
+Ans- Template - The template is now ng-template. You should use the “ng-template” tag instead of “template”. Now Angular has its own template tag that is called “ng-template”.
+
+ NgIf with Else – Now in Angular 4, possible to use an else syntax as,
+
+<div *ngIf="user.length > 0; else empty"><h2>Users</h2></div>
+<ng-template #empty><h2>No users.</h2></ng-template>
+
+AS keyword – A new addition to the template syntax is the “as keyword” is use to simplify to the “let” syntax.
+
+Use of as keyword,
+<div *ngFor="let user of users | slice:0:2 as total; index as = i">
+    {{i+1}}/{{total.length}}: {{user.name}}
+</div>
+
+To subscribe only once to a pipe “|” with “async” and If a user is an observable, you can now use to write,
+
+<div *ngIf="users | async as usersModel">
+    <h2>{{ usersModel.name }}</h2> <small>{{ usersModel.age }}</small>
+</div>
+
+
+Pipes - Angular 4 introduced a new “titlecase” pipe “|” and use to changes the first letter of each word into the uppercase. 
+
+The example as,
+<h2>{{ 'anil singh' | titlecase }}</h2>
+<!-- OUPPUT - It will display 'Anil Singh' -->
+
+ Http - Adding search parameters to an “HTTP request” has been simplified as,
+
+//Angular 4 -
+http.get(`${baseUrl}/api/users`, { params: { sort: 'ascending' } });
+
+//Angular 2-
+const params = new URLSearchParams();
+params.append('sort', 'ascending');
+http.get(`${baseUrl}/api/users`, { search: params });
+
+ Test- Angular 4, overriding a template in a test has also been simplified as,
+
+//Angular 4 -
+TestBed.overrideTemplate(UsersComponent, '<h2>{{users.name}}</h2>');
+
+//Angular 2 -
+TestBed.overrideComponent(UsersComponent, {
+    set: { template: '<h2>{{users.name}}</h2>' }
+});
+
+ Service- A new service has been introduced to easily get or update “Meta Tags” i.e.
+@Component({
+    selector: 'users-app',
+    template: `<h1>Users</h1>`
+})
+export class UsersAppComponent {
+    constructor(meta: Meta) {
+        meta.addTag({ name: 'Blogger', content: 'Anil Singh' });
+    }
+}
+
+Forms Validators - One new validator joins the existing “required”, “minLength”, “maxLength” and “pattern”. An email helps you validate that the input is a valid email.
+
+ Compare Select Options - A new “compareWith” directive has been added and it used to help you compare options from a select.
+
+<select [compareWith]="byUId" [(ngModel)]="selectedUsers">
+    <option *ngFor="let user of users" [ngValue]="user.UId">{{user.name}}</option>
+</select>
+
+Router - A new interface “paramMap” and “queryParamMap” has been added and it introduced to represent the parameters of a URL. 
+
+const uid = this.route.snapshot.paramMap.get('UId');
+this.userService.get(uid).subscribe(user => this.name = name);
+
+ 
+
+CanDeactivate - This “CanDeactivate” interface now has an extra (optional) parameter and it is containing the next state.
+
+ I18n - The internationalization is tiny improvement.
+
+//Angular 4-
+<div [ngPlural]="value">
+    <ng-template ngPluralCase="0">there is nothing</ng-template>
+    <ng-template ngPluralCase="1">there is one</ng-template>
+</div>
+
+//Angular 2-
+<div [ngPlural]="value">
+    <ng-template ngPluralCase="=0">there is nothing</ng-template>
+    <ng-template ngPluralCase="=1">there is one</ng-template>
+</div>
+
+9. What are the Observables?
+Ans- An Observable is like a Stream (in many languages) and allows to pass zero or more events where the callback is called for each event.
+
+Often Observable is preferred over Promise because it provides the features of Promise and more. With Observable it doesn't matter if you want to handle 0, 1, or multiple events. You can utilize the same API in each case.
+
+Observable also has the advantage over Promise to be cancelable. If the result of an HTTP request to a server or some other expensive async operation isn't needed anymore, the Subscription of an Observable allows to cancel the subscription, while a Promise will eventually call the success or failed callback even when you don't need the notification or the result it provides anymore.
+
+Observable provides operators like map, forEach, reduce, ... similar to an array
+
+There are also powerful operators like retry(), or replay(), ... that are often quite handy.
+
+10. What is the difference between Promises and Observables? Which one is preferred and why?
+Ans- 1.      Promise:- Promises are only called once and It can return only a single value at a time and the Promises are not cancellable.
+2.      Observables:- Observables handle multiple values over time and it can return multiple values and the Observables are cancellable.
+3.      The Observables are more advanced than Promises.
+
+Observables are preferred  because easy to handle and manipulate 
+
+11. What is the Meta Data for Angular Module? Define each meta data supplied to it.
+Ans-  imports: [
+    CommonModule,
+    FormsModule
+  ],
+  declarations: [
+    DailyScheduleComponent,
+  ],
+  providers: [
+    ClinicFacilityService
+  ],
+  exports: [
+    DailyScheduleComponent
+  ],
+
+12. What is Component driven programming?
+Ans- component driven programming is to make each and every component reusable in anywhere of an app and they is loosely coupled with the other component.
+
+13. What is the syntax of Event Binding in Angular2/4?
+ Ans- (method)='function()'
+14. What is the syntax of Property Binding?
+Ans- [Key]="value"
+
+15. What is an interpolation? 
+Ans- Interpolation uses template expressions in double curly braces to display data from the component class and template reference variables.
+
+16. What are different types of Interfaces?
+Ans- 1- Function Types
+     2- Indexable Types
+     3- Hybrid Types
+     4- properties type
+
+17. What are behavioral subjects?
+Ans- When an observer subscribes to a BehaviorSubject, it begins by emitting the item most recently emitted by the source Observable (or a seed/default value if none has yet been emitted) and then continues to emit any other items emitted later by the source Observable(s).
+
+18. What does @Injactables do? Which library provides us Injectables?
+Ans- @Injectable() is not strictly required if the class has other Angular decorators on it or does not have any dependencies. What is important is that any class that is going to be injected with Angular is decorated. However, best practice is to decorate injectibles with @Injectable(), as it makes more sense to the reader
+
+lib:- @angular/core
+
+19. When we have to use "this" keyword, which type of function declaration to be used with "this"
+Ans-  used in arrow function syntax - (param1, param2, …, paramN) => { statements }
+
+20. Which classes needed to be imported to define routing, and from which library?
+Ans- class-ActivatedRoute, Router / lib- '@angular/router';
+
+1. What is the differtence betwwen Anguler and Anguler2 ?
+
+2. What is .all and .apply function work ?
+
+3. What is closures ?
+
+4. How we can pass value in component.
+
+5. What is ths use of let variable ?
+
+6. How we can start angular 4 project in terminal ?
+
+7. How we can build project in project enviroment and what is the way for configuration for production ?
+
+8. What is ES6 ?
+
+9. What is typescript ?
+10. What is AOI engine works on Angular 4 ?
